@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>TAXII Service Profiles | TAXII Project Documentation</title>
+    <meta name="viewport" content="width=device-width">
+
+    <!-- bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- syntax highlighting CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-35443076-1']);
+      _gaq.push(['_setDomainName', 'taxiiproject.github.io'])
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
+</head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">TAXII Docs</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+          <li role="presentation"><a href="/getting-started">Getting Started</a></li>
+          <!-- <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Getting Started<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+
+            <li role="presentation" class="divider"></li>
+            <li role="presentation" class="dropdown-header">Documents</li>
+            <li role="presentation"><a href="http://makingsecuritymeasurable.mitre.org/docs/taxii-intro-handout.pdf" target="_blank">Introductory Brochure</a></li>
+            <li role="presentation"><a href="http://taxii.mitre.org/about/documents/Introduction_to_TAXII_White_Paper_May_2014.pdf" target="_blank">Whitepaper (PDF)</a></li>
+            <li role="presentation"><a href="http://stix.mitre.org/training/" target="_blank">Training Materials</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a href="/documentation">Documentation Home</a></li>
+            <li role="presentation"><a href="/developers">Developers Home</a></li>
+            <!-- <li role="presentation" class="dropdown-header">TAXII Libraries</li>
+            <li role="presentation"><a href="http://libtaxii.readthedocs.org/en/latest/getting_started.html">libtaxii</a></li>
+            <li role="presentation"><a href="http://taxii-services.readthedocs.org/en/latest/getting_started.html">django-taxii-services</a></li>
+            <li role="presentation"><a href="/java-taxii/getting-started">java-taxii</a></li>
+            <li role="presentation"><a href="https://github.com/TAXIIProject/yeti">YETI</a></li>
+          </ul>
+        </li> -->
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li role="presentation"><a href="/documentation">Documentation Home</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a href="/documentation/service-profiles">TAXII Service Profiles</a></li>
+            <li role="presentation"><a href="/documentation/faq">TAXII FAQ</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developers<span class="caret"></span></a>
+         <ul class="dropdown-menu" role="menu">
+           <li role="presentation"><a href="/developers">Developers Home</a></li>
+           <li role="presentation" class="divider"></li>
+           <li role="presentation"><a href="/developers/libtaxii">libtaxii</a></li>
+           <li role="presentation"><a href="/developers/taxii-services">django-taxii-services</a></li>
+           <li role="presentation"><a href="/developers/java-taxii">java-taxii</a></li>
+         </ul>
+        </li>
+
+    </div>
+  </div>
+</div>
+
+
+    <div class="container">
+      <h1>TAXII Service Profiles</h1>
+      <p><link href="/css/idioms.css" rel="stylesheet"/></p>
+
+<p>The Service Profiles on this page provide guidance on how to implement common TAXII 
+Service Concepts. The code is all demonstrated using django-taxii-services.
+The list can be filtered based on the use case in
+which they are applicable, as well as by which TAXII Services they use.</p>
+
+<div class="row">
+  <div class="col-md-12">
+    
+    
+    <table id="idiom-table" class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            <h3>Service Profile
+              <small class="dropdown">
+                <button class="btn btn-info dropdown-toggle" type="button" id="filterMenu" data-toggle="dropdown">
+                  Filter By... <span class="caret"></span>
+                </button>
+                <ul id="tag-filterer" class="dropdown-menu" role="menu" aria-labelledby="filterMenu">
+                  <li role="presentation"><a class="tag-filter" role="menuitem" tabindex="-1" href="#">None</a></li>
+                  <li role="presentation" class="divider"></li>
+                  <li role="presentation" class="dropdown-header">Use Cases</li>
+                  
+                  
+                    <li role="presentation"><a class="tag-filter" role="menuitem" tabindex="-1" href="#">Reputation</a></li>
+                  
+                  <li role="presentation" class="divider"></li>
+                  <li role="presentation" class="dropdown-header">TAXII Services</li>
+                  
+                  
+                    <li role="presentation"><a class="tag-filter" role="menuitem" tabindex="-1" href="#">Collection Management Service</a></li>
+                  
+                    <li role="presentation"><a class="tag-filter" role="menuitem" tabindex="-1" href="#">Discovery Service</a></li>
+                  
+                    <li role="presentation"><a class="tag-filter" role="menuitem" tabindex="-1" href="#">Inbox Service</a></li>
+                  
+                    <li role="presentation"><a class="tag-filter" role="menuitem" tabindex="-1" href="#">Poll Service</a></li>
+                  
+                </ul>
+              </small>
+            </h3>
+          </th>
+          <th>
+            <h3>Use Cases</h3>
+          </th>
+          <th>
+            <h3>TAXII Services</h3>
+          </th>
+          <th>
+            <h3>Description</h3>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <tr>
+              <td>
+                <h4>
+                  <a href='/documentation/service-profiles/file-hash-rep'>File Hash Reputation</a>
+                </h4>
+              </td>
+              <td>
+                <span class="tag-labels-container">
+                  
+                    
+                    <span data-tag="Reputation" class="label label-reputation">
+                      Reputation
+                    </span>
+                  
+                </span>
+              </td>
+              <td>
+                
+                
+                <span class="idiom-construct" data-tag="Poll Service" data-toggle="tooltip"
+                    data-placement="top" title="Poll Service">
+                  <img src="/images/Poll Service.png" width="40px" alt="Poll Service Icon" />
+                </span>
+                
+              </td>
+              <td>
+                <button class="btn btn-info" data-toggle="popover" data-placement="left" data-trigger="hover" title="File Hash Reputation" data-content="The File Hash Reputation TAXII Service Profile documents a File Hash Reputation Service in TAXII.">
+                  <span class="glyphicon glyphicon-question-sign"><span>
+                </button>
+              </td>
+            </tr>
+          
+        
+          
+        
+          
+            <tr>
+              <td>
+                <h4>
+                  <a href='/documentation/service-profiles/test'>Test Service Profile</a>
+                </h4>
+              </td>
+              <td>
+                <span class="tag-labels-container">
+                  
+                </span>
+              </td>
+              <td>
+                
+                
+                <span class="idiom-construct" data-tag="Poll Service" data-toggle="tooltip"
+                    data-placement="top" title="Poll Service">
+                  <img src="/images/Poll Service.png" width="40px" alt="Poll Service Icon" />
+                </span>
+                
+                
+                <span class="idiom-construct" data-tag="Discovery Service" data-toggle="tooltip"
+                    data-placement="top" title="Discovery Service">
+                  <img src="/images/Discovery Service.png" width="40px" alt="Discovery Service Icon" />
+                </span>
+                
+                
+                <span class="idiom-construct" data-tag="Inbox Service" data-toggle="tooltip"
+                    data-placement="top" title="Inbox Service">
+                  <img src="/images/Inbox Service.png" width="40px" alt="Inbox Service Icon" />
+                </span>
+                
+                
+                <span class="idiom-construct" data-tag="Collection Management Service" data-toggle="tooltip"
+                    data-placement="top" title="Collection Management Service">
+                  <img src="/images/Collection Management Service.png" width="40px" alt="Collection Management Service Icon" />
+                </span>
+                
+              </td>
+              <td>
+                <button class="btn btn-info" data-toggle="popover" data-placement="left" data-trigger="hover" title="Test Service Profile" data-content="This service profile tests the aspects of the dashboard, checking to make sure that all options work when specified">
+                  <span class="glyphicon glyphicon-question-sign"><span>
+                </button>
+              </td>
+            </tr>
+          
+        
+          
+        
+          
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+    </div>
+
+    <div id="footer">
+  <hr />
+  <div class="container">
+    <p class="text-muted">
+      Copyright 2015 The MITRE Corporation. <a href="http://taxii.mitre.org/about/termsofuse.html">Terms of Use</a>
+    </p>
+  </div>
+</div>
+
+<!-- jQuery JS -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- bootstrap JS -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- typeahead JS -->
+<script src="/js/typeahead.min.js"></script>
+
+<!-- Custom JS -->
+<script src="/js/main.js"></script>
+
+	<script type="text/javascript" src="/js/idioms.js"></script>
+  </body>
+</html>
