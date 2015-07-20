@@ -74,7 +74,8 @@ def main():
     #Iterate over the content blocks
     for content_block in msg.content_blocks:
         if content_block.content_binding.binding_id != CB_STIX_XML_111:
-            raise ValueError('Something other than STIX 1.1.1 was attempted!')
+            print "Found something other than STIX 1.1.1"
+            continue
 
         # Deserialize the STIX_Package
         stix_package = STIXPackage.from_xml(StringIO(content_block.content))
@@ -84,7 +85,6 @@ def main():
         ttp = get_indicated_ttp(stix_package, indicated_ttp.id_)
         if ttp.title != 'Malicious File':
             raise ValueError('Don\'t know how to handle that TTP')
-
 
         if confidence in ('High','Medium'):
             print "DO NOT OPEN THE FILE"
